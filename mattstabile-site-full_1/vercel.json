@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/about-matt", "destination": "/about", "permanent": true },
+    { "source": "/video", "destination": "/speaking", "permanent": true }
+  ]
+}
