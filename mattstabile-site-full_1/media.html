@@ -17,34 +17,31 @@
   <style>
     /* ---------- In the Media page ---------- */
     .press-strip {
-      display: flex; flex-wrap: wrap; gap: 14px 40px;
+      display: flex; flex-wrap: wrap; gap: 14px 44px;
       align-items: baseline; margin-top: 34px;
     }
     .press-strip .masthead {
       font-family: var(--font-display);
-      font-weight: 700; font-size: 20px;
-      color: var(--ink); opacity: .55;
+      font-weight: 700; font-size: 24px;
+      color: var(--ink); opacity: .5;
       letter-spacing: -0.01em;
       transition: opacity .18s ease;
     }
     .press-strip .masthead:hover { opacity: 1; }
     .press-strip .masthead.serif { font-family: Georgia, "Times New Roman", serif; font-style: italic; }
-    .press-strip .masthead.mono { font-family: var(--font-mono); font-weight: 600; font-size: 17px; letter-spacing: .06em; }
+    .press-strip .masthead.mono { font-family: var(--font-mono); font-weight: 600; font-size: 19px; letter-spacing: .05em; }
 
-    .media-stats {
-      display: flex; flex-wrap: wrap; gap: 18px;
-      margin-top: 40px;
-    }
+    .media-stats { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 38px; }
     .media-stats .stat {
       background: #fff; border: 1px solid var(--steel-line);
       border-radius: var(--radius);
-      padding: 18px 26px;
+      padding: 16px 26px;
     }
     .media-stats .stat b {
       display: block;
       font-family: var(--font-display);
-      font-size: 30px; font-weight: 700; color: var(--ink);
-      line-height: 1.1;
+      font-size: 28px; font-weight: 700; color: var(--ink);
+      line-height: 1.15;
     }
     .media-stats .stat span {
       font-family: var(--font-mono); font-size: 12px;
@@ -52,52 +49,39 @@
       color: var(--text-muted);
     }
 
-    /* Timeline */
-    .timeline { position: relative; max-width: 860px; }
-    .timeline::before {
-      content: "";
-      position: absolute; left: 7px; top: 6px; bottom: 6px;
-      width: 2px;
-      background: linear-gradient(180deg, var(--green) 0%, var(--steel-line) 100%);
-    }
-    .timeline-year {
-      position: relative;
-      padding-left: 44px;
-      margin: 46px 0 18px;
-      font-family: var(--font-mono);
-      font-size: 14px; font-weight: 600;
-      letter-spacing: .16em;
-      color: var(--green-dark);
-    }
-    .timeline-year:first-of-type { margin-top: 0; }
-    .timeline-year::before {
-      content: "";
-      position: absolute; left: 0; top: 4px;
-      width: 16px; height: 16px; border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 4px rgba(15,163,107,.18);
-    }
-    .press-item {
-      position: relative;
-      margin: 0 0 18px 44px;
-      background: #fff;
-      border: 1px solid var(--steel-line);
-      border-radius: var(--radius);
-      padding: 26px 30px;
+    /* Card grid */
+    .press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .press-card {
+      display: flex; flex-direction: column;
+      background: #fff; border: 1px solid var(--steel-line);
+      border-radius: var(--radius); overflow: hidden;
       transition: transform .18s ease, box-shadow .18s ease;
     }
-    .press-item:hover { transform: translateX(4px); box-shadow: 0 14px 34px rgba(11,29,51,.1); }
-    .press-item::before {
-      content: "";
-      position: absolute; left: -41px; top: 34px;
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--steel-line);
-      box-shadow: 0 0 0 3px var(--paper);
+    .press-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(11,29,51,.12); }
+    .press-card.wide { grid-column: span 2; }
+    .press-thumb { position: relative; display: block; aspect-ratio: 2 / 1; overflow: hidden; background: var(--steel); }
+    .press-thumb img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .3s ease;
     }
-    .press-meta {
-      display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center;
-      margin-bottom: 10px;
+    .press-card:hover .press-thumb img { transform: scale(1.04); }
+    .press-wordmark {
+      aspect-ratio: 2 / 1;
+      display: flex; align-items: center; justify-content: center;
+      background:
+        radial-gradient(ellipse 70% 80% at 50% 0%, rgba(15, 163, 107, 0.12), transparent),
+        var(--steel);
+      border-bottom: 1px solid var(--steel-line);
     }
+    .press-wordmark span {
+      font-family: var(--font-display); font-weight: 700; font-size: 28px;
+      color: var(--ink); opacity: .8; letter-spacing: -0.01em;
+      padding: 0 20px; text-align: center;
+    }
+    .press-wordmark span.serif { font-family: Georgia, "Times New Roman", serif; font-style: italic; }
+    .press-wordmark span.mono { font-family: var(--font-mono); font-weight: 600; font-size: 20px; }
+    .press-body { padding: 22px 26px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .press-meta { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
     .press-outlet {
       font-family: var(--font-mono); font-size: 12px; font-weight: 600;
       letter-spacing: .1em; text-transform: uppercase;
@@ -111,22 +95,23 @@
       letter-spacing: .08em; text-transform: uppercase;
       color: var(--text-muted);
     }
-    .press-item h3 {
+    .press-body h3 {
       font-family: var(--font-display);
-      font-size: 20px; font-weight: 600; line-height: 1.35;
+      font-size: 19px; font-weight: 600; line-height: 1.35;
+      color: var(--ink);
     }
-    .press-item h3 a { color: var(--ink); }
-    .press-item h3 a:hover { color: var(--green-dark); text-decoration: none; }
-    .press-item h3 a::after {
-      content: "↗";
-      font-family: var(--font-mono);
-      font-size: 14px; color: var(--green);
-      margin-left: 8px;
+    .press-card.wide .press-body h3 { font-size: 22px; }
+    .press-body h3 a { color: var(--ink); }
+    .press-body h3 a:hover { color: var(--green-dark); text-decoration: none; }
+    .press-body .read {
+      margin-top: auto; font-family: var(--font-mono); font-size: 13px;
+      color: var(--green-dark); letter-spacing: .06em;
     }
-    .press-item h3 span.nolink { color: var(--ink); }
-    @media (max-width: 640px) {
-      .press-item { padding: 22px; }
-      .press-item h3 { font-size: 18px; }
+    .press-body .read::after { content: " ↗"; color: var(--green); }
+    @media (max-width: 900px) {
+      .press-grid { grid-template-columns: 1fr; }
+      .press-card.wide { grid-column: span 1; }
+      .press-strip .masthead { font-size: 20px; }
     }
   </style>
 </head>
@@ -168,63 +153,116 @@
 
   <section class="section section-steel">
     <div class="wrap">
-      <p class="eyebrow">Press Timeline</p>
-      <h2 class="section-title">Coverage &amp; commentary</h2>
+      <p class="eyebrow">Coverage</p>
+      <h2 class="section-title">Featured stories &amp; commentary</h2>
 
-      <div class="timeline">
+      <div class="press-grid">
 
-        <div class="timeline-year">2026</div>
-        <article class="press-item">
-          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">March 8, 2026</span></div>
-          <h3><a href="https://www.businessinsider.com/ivy-league-college-degree-graduates-job-market-hiring-harvard-yale-2026-3" target="_blank" rel="noopener">The bootcamp era is over. Companies are chasing elite college grads again.</a></h3>
-        </article>
-
-        <div class="timeline-year">2025</div>
-        <article class="press-item">
-          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">April 17, 2025</span></div>
-          <h3><a href="https://www.businessinsider.com/dei-hiring-amid-trump-executive-order-recruiters-hiring-managers-2025-4" target="_blank" rel="noopener">Don't call it DEI: Recruiters explain the hiring landscape under Trump 2.0</a></h3>
-        </article>
-
-        <div class="timeline-year">2024</div>
-        <article class="press-item">
-          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">December 25, 2024</span></div>
-          <h3><a href="https://www.businessinsider.com/how-to-get-tech-job-on-wall-street-recruiter-advice-2024-12" target="_blank" rel="noopener">AI is expected to fuel Wall Street's tech hiring in 2025. Headhunters break down what you need to know to get a leg up.</a></h3>
+        <article class="press-card wide">
+          <a class="press-thumb" href="https://www.businessinsider.com/ivy-league-college-degree-graduates-job-market-hiring-harvard-yale-2026-3" target="_blank" rel="noopener">
+            <img src="https://www.stabilesearch.com/images/press/bi-2026-college-grads.jpg" alt="Business Insider: The bootcamp era is over" loading="lazy">
+          </a>
+          <div class="press-body">
+            <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">March 8, 2026</span></div>
+            <h3><a href="https://www.businessinsider.com/ivy-league-college-degree-graduates-job-market-hiring-harvard-yale-2026-3" target="_blank" rel="noopener">The bootcamp era is over. Companies are chasing elite college grads again.</a></h3>
+            <span class="read">Read the story</span>
+          </div>
         </article>
 
-        <div class="timeline-year">2022</div>
-        <article class="press-item">
-          <div class="press-meta"><span class="press-outlet">Dice</span><span class="press-date">December 22, 2022</span></div>
-          <h3><a href="https://www.dice.com/career-advice/data-science-degree-choosing-the-best-one-for-a-career" target="_blank" rel="noopener">Data Science Degree: Choosing the Best One for a Career</a></h3>
+        <article class="press-card">
+          <a class="press-thumb" href="https://www.businessinsider.com/dei-hiring-amid-trump-executive-order-recruiters-hiring-managers-2025-4" target="_blank" rel="noopener">
+            <img src="https://www.stabilesearch.com/images/press/bi-2025-dei.jpg" alt="Business Insider: recruiters explain the hiring landscape" loading="lazy">
+          </a>
+          <div class="press-body">
+            <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">April 17, 2025</span></div>
+            <h3><a href="https://www.businessinsider.com/dei-hiring-amid-trump-executive-order-recruiters-hiring-managers-2025-4" target="_blank" rel="noopener">Don't call it DEI: Recruiters explain the hiring landscape under Trump 2.0</a></h3>
+            <span class="read">Read the story</span>
+          </div>
         </article>
 
-        <div class="timeline-year">2021</div>
-        <article class="press-item">
-          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">December 13, 2021</span></div>
-          <h3><a href="https://www.businessinsider.com/banks-hedge-funds-hiring-technologists-engineers-developers-fast-interview-process-2021-12" target="_blank" rel="noopener">Inside Wall Street's frenzied war for tech talent: Where candidates have 15 interviews in 3 days and recruiters are 'flat out right now'</a></h3>
-        </article>
-        <article class="press-item">
-          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">November 1, 2021</span></div>
-          <h3><a href="https://www.businessinsider.com/investment-banks-hiring-data-scientists-software-engineers-advise-deals-mergers-2021-10" target="_blank" rel="noopener">Goldman Sachs, Citi, and UBS execs detail how their investment banks are using data science to gain an edge in the dealmaking process</a></h3>
-        </article>
-        <article class="press-item">
-          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">July 9, 2021</span></div>
-          <h3><a href="https://www.businessinsider.com/wall-street-burnout-hiring-opportunity-fintech-ramp-rho-2021-7" target="_blank" rel="noopener">NY fintechs are using remote work to poach people from Wall Street banks pushing a return to the office</a></h3>
+        <article class="press-card">
+          <a class="press-thumb" href="https://www.businessinsider.com/how-to-get-tech-job-on-wall-street-recruiter-advice-2024-12" target="_blank" rel="noopener">
+            <img src="https://www.stabilesearch.com/images/press/bi-2024-ai-hiring.jpg" alt="Business Insider: AI is expected to fuel Wall Street's tech hiring" loading="lazy">
+          </a>
+          <div class="press-body">
+            <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">December 25, 2024</span></div>
+            <h3><a href="https://www.businessinsider.com/how-to-get-tech-job-on-wall-street-recruiter-advice-2024-12" target="_blank" rel="noopener">AI is expected to fuel Wall Street's tech hiring in 2025. Headhunters break down what you need to know.</a></h3>
+            <span class="read">Read the story</span>
+          </div>
         </article>
 
-        <div class="timeline-year">2018</div>
-        <article class="press-item">
-          <div class="press-meta"><span class="press-outlet">FundFire</span><span class="press-date">August 10, 2018</span></div>
-          <h3><span class="nolink">BlackRock, T. Rowe Turn to 'Bootcamps' for Tech Talent</span></h3>
-        </article>
-        <article class="press-item">
-          <div class="press-meta"><span class="press-outlet">eFinancialCareers</span><span class="press-date">January 17, 2018</span></div>
-          <h3><a href="https://news.efinancialcareers.com/us-en/305744/highest-paying-technology-jobs-wall-street" target="_blank" rel="noopener">How to make $200k+ in a tech job on Wall Street</a></h3>
+        <article class="press-card">
+          <a class="press-thumb" href="https://www.dice.com/career-advice/data-science-degree-choosing-the-best-one-for-a-career" target="_blank" rel="noopener">
+            <img src="https://www.stabilesearch.com/images/press/dice-2022-degree.jpg" alt="Dice: choosing a data science degree" loading="lazy">
+          </a>
+          <div class="press-body">
+            <div class="press-meta"><span class="press-outlet">Dice</span><span class="press-date">December 22, 2022</span></div>
+            <h3><a href="https://www.dice.com/career-advice/data-science-degree-choosing-the-best-one-for-a-career" target="_blank" rel="noopener">Data Science Degree: Choosing the Best One for a Career</a></h3>
+            <span class="read">Read the story</span>
+          </div>
         </article>
 
-        <div class="timeline-year">2017</div>
-        <article class="press-item">
-          <div class="press-meta"><span class="press-outlet">eFinancialCareers</span><span class="press-date">July 28, 2017</span></div>
-          <h3><a href="https://news.efinancialcareers.com/us-en/291230/fintech-consolidation-could-eat-your-job-vela-trading-technologies" target="_blank" rel="noopener">Why not to work in fintech: Consolidation could eat your job</a></h3>
+        <article class="press-card">
+          <a class="press-thumb" href="https://www.businessinsider.com/banks-hedge-funds-hiring-technologists-engineers-developers-fast-interview-process-2021-12" target="_blank" rel="noopener">
+            <img src="https://www.stabilesearch.com/images/press/bi-2021-tech-talent-war.jpg" alt="Business Insider: Wall Street's war for tech talent" loading="lazy">
+          </a>
+          <div class="press-body">
+            <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">December 13, 2021</span></div>
+            <h3><a href="https://www.businessinsider.com/banks-hedge-funds-hiring-technologists-engineers-developers-fast-interview-process-2021-12" target="_blank" rel="noopener">Inside Wall Street's frenzied war for tech talent: candidates have 15 interviews in 3 days and recruiters are 'flat out right now'</a></h3>
+            <span class="read">Read the story</span>
+          </div>
+        </article>
+
+        <article class="press-card">
+          <a class="press-thumb" href="https://www.businessinsider.com/investment-banks-hiring-data-scientists-software-engineers-advise-deals-mergers-2021-10" target="_blank" rel="noopener">
+            <img src="https://www.stabilesearch.com/images/press/bi-2021-data-science-deals.jpg" alt="Business Insider: banks using data science in dealmaking" loading="lazy">
+          </a>
+          <div class="press-body">
+            <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">November 1, 2021</span></div>
+            <h3><a href="https://www.businessinsider.com/investment-banks-hiring-data-scientists-software-engineers-advise-deals-mergers-2021-10" target="_blank" rel="noopener">Goldman Sachs, Citi, and UBS execs detail how their investment banks are using data science to gain an edge in dealmaking</a></h3>
+            <span class="read">Read the story</span>
+          </div>
+        </article>
+
+        <article class="press-card">
+          <a class="press-thumb" href="https://www.businessinsider.com/wall-street-burnout-hiring-opportunity-fintech-ramp-rho-2021-7" target="_blank" rel="noopener">
+            <img src="https://www.stabilesearch.com/images/press/bi-2021-fintech-poach.jpg" alt="Business Insider: fintechs using remote work to poach Wall Street talent" loading="lazy">
+          </a>
+          <div class="press-body">
+            <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">July 9, 2021</span></div>
+            <h3><a href="https://www.businessinsider.com/wall-street-burnout-hiring-opportunity-fintech-ramp-rho-2021-7" target="_blank" rel="noopener">NY fintechs are using remote work to poach people from Wall Street banks pushing a return to the office</a></h3>
+            <span class="read">Read the story</span>
+          </div>
+        </article>
+
+        <article class="press-card">
+          <div class="press-wordmark"><span class="serif">FundFire</span></div>
+          <div class="press-body">
+            <div class="press-meta"><span class="press-outlet">FundFire</span><span class="press-date">August 10, 2018</span></div>
+            <h3>BlackRock, T. Rowe Turn to 'Bootcamps' for Tech Talent</h3>
+          </div>
+        </article>
+
+        <article class="press-card">
+          <a class="press-thumb press-wordmark" href="https://news.efinancialcareers.com/us-en/305744/highest-paying-technology-jobs-wall-street" target="_blank" rel="noopener">
+            <span class="mono">eFinancialCareers</span>
+          </a>
+          <div class="press-body">
+            <div class="press-meta"><span class="press-outlet">eFinancialCareers</span><span class="press-date">January 17, 2018</span></div>
+            <h3><a href="https://news.efinancialcareers.com/us-en/305744/highest-paying-technology-jobs-wall-street" target="_blank" rel="noopener">How to make $200k+ in a tech job on Wall Street</a></h3>
+            <span class="read">Read the story</span>
+          </div>
+        </article>
+
+        <article class="press-card">
+          <a class="press-thumb press-wordmark" href="https://news.efinancialcareers.com/us-en/291230/fintech-consolidation-could-eat-your-job-vela-trading-technologies" target="_blank" rel="noopener">
+            <span class="mono">eFinancialCareers</span>
+          </a>
+          <div class="press-body">
+            <div class="press-meta"><span class="press-outlet">eFinancialCareers</span><span class="press-date">July 28, 2017</span></div>
+            <h3><a href="https://news.efinancialcareers.com/us-en/291230/fintech-consolidation-could-eat-your-job-vela-trading-technologies" target="_blank" rel="noopener">Why not to work in fintech: Consolidation could eat your job</a></h3>
+            <span class="read">Read the story</span>
+          </div>
         </article>
 
       </div>
