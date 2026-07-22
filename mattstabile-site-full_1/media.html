@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>In the Media | Matt Stabile — Quant Finance &amp; Data Science Recruiter NYC</title>
+  <meta name="description" content="Matt Stabile has been quoted and featured in Business Insider, eFinancialCareers, FundFire, and Dice on quant finance hiring, data science careers, and Wall Street tech talent.">
+  <link rel="canonical" href="https://www.mattstabile.com/media.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.mattstabile.com/media.html">
+  <meta property="og:title" content="In the Media | Matt Stabile">
+  <meta property="og:description" content="Press features and expert commentary in Business Insider, eFinancialCareers, FundFire, and Dice.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    /* ---------- In the Media page ---------- */
+    .press-strip {
+      display: flex; flex-wrap: wrap; gap: 14px 40px;
+      align-items: baseline; margin-top: 34px;
+    }
+    .press-strip .masthead {
+      font-family: var(--font-display);
+      font-weight: 700; font-size: 20px;
+      color: var(--ink); opacity: .55;
+      letter-spacing: -0.01em;
+      transition: opacity .18s ease;
+    }
+    .press-strip .masthead:hover { opacity: 1; }
+    .press-strip .masthead.serif { font-family: Georgia, "Times New Roman", serif; font-style: italic; }
+    .press-strip .masthead.mono { font-family: var(--font-mono); font-weight: 600; font-size: 17px; letter-spacing: .06em; }
+
+    .media-stats {
+      display: flex; flex-wrap: wrap; gap: 18px;
+      margin-top: 40px;
+    }
+    .media-stats .stat {
+      background: #fff; border: 1px solid var(--steel-line);
+      border-radius: var(--radius);
+      padding: 18px 26px;
+    }
+    .media-stats .stat b {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 30px; font-weight: 700; color: var(--ink);
+      line-height: 1.1;
+    }
+    .media-stats .stat span {
+      font-family: var(--font-mono); font-size: 12px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Timeline */
+    .timeline { position: relative; max-width: 860px; }
+    .timeline::before {
+      content: "";
+      position: absolute; left: 7px; top: 6px; bottom: 6px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--green) 0%, var(--steel-line) 100%);
+    }
+    .timeline-year {
+      position: relative;
+      padding-left: 44px;
+      margin: 46px 0 18px;
+      font-family: var(--font-mono);
+      font-size: 14px; font-weight: 600;
+      letter-spacing: .16em;
+      color: var(--green-dark);
+    }
+    .timeline-year:first-of-type { margin-top: 0; }
+    .timeline-year::before {
+      content: "";
+      position: absolute; left: 0; top: 4px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(15,163,107,.18);
+    }
+    .press-item {
+      position: relative;
+      margin: 0 0 18px 44px;
+      background: #fff;
+      border: 1px solid var(--steel-line);
+      border-radius: var(--radius);
+      padding: 26px 30px;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .press-item:hover { transform: translateX(4px); box-shadow: 0 14px 34px rgba(11,29,51,.1); }
+    .press-item::before {
+      content: "";
+      position: absolute; left: -41px; top: 34px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--steel-line);
+      box-shadow: 0 0 0 3px var(--paper);
+    }
+    .press-meta {
+      display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center;
+      margin-bottom: 10px;
+    }
+    .press-outlet {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--green-dark);
+      background: rgba(15,163,107,.1);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+    .press-date {
+      font-family: var(--font-mono); font-size: 12.5px;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .press-item h3 {
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 600; line-height: 1.35;
+    }
+    .press-item h3 a { color: var(--ink); }
+    .press-item h3 a:hover { color: var(--green-dark); text-decoration: none; }
+    .press-item h3 a::after {
+      content: "↗";
+      font-family: var(--font-mono);
+      font-size: 14px; color: var(--green);
+      margin-left: 8px;
+    }
+    .press-item h3 span.nolink { color: var(--ink); }
+    @media (max-width: 640px) {
+      .press-item { padding: 22px; }
+      .press-item h3 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/">Matt<span class="tick">▲</span>Stabile</a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About Matt</a></li>
+      <li><a href="/speaking.html">Speaking</a></li>
+      <li><a href="/media.html" aria-current="page">In the Media</a></li>
+      <li><a class="btn btn-solid" href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">In the Media</p>
+      <h1>Quoted &amp; featured over the years</h1>
+      <p>Journalists covering Wall Street hiring, quant finance, and data science careers turn to Matt for an insider's view of the market. Here's a selection of stories featuring his commentary since 2017.</p>
+      <div class="press-strip" aria-label="Featured in">
+        <span class="masthead">Business Insider</span>
+        <span class="masthead serif">FundFire</span>
+        <span class="masthead mono">eFinancialCareers</span>
+        <span class="masthead">Dice</span>
+      </div>
+      <div class="media-stats">
+        <div class="stat"><b>10</b><span>Features</span></div>
+        <div class="stat"><b>4</b><span>Publications</span></div>
+        <div class="stat"><b>9+</b><span>Years of coverage</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-steel">
+    <div class="wrap">
+      <p class="eyebrow">Press Timeline</p>
+      <h2 class="section-title">Coverage &amp; commentary</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-year">2026</div>
+        <article class="press-item">
+          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">March 8, 2026</span></div>
+          <h3><a href="https://www.businessinsider.com/ivy-league-college-degree-graduates-job-market-hiring-harvard-yale-2026-3" target="_blank" rel="noopener">The bootcamp era is over. Companies are chasing elite college grads again.</a></h3>
+        </article>
+
+        <div class="timeline-year">2025</div>
+        <article class="press-item">
+          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">April 17, 2025</span></div>
+          <h3><a href="https://www.businessinsider.com/dei-hiring-amid-trump-executive-order-recruiters-hiring-managers-2025-4" target="_blank" rel="noopener">Don't call it DEI: Recruiters explain the hiring landscape under Trump 2.0</a></h3>
+        </article>
+
+        <div class="timeline-year">2024</div>
+        <article class="press-item">
+          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">December 25, 2024</span></div>
+          <h3><a href="https://www.businessinsider.com/how-to-get-tech-job-on-wall-street-recruiter-advice-2024-12" target="_blank" rel="noopener">AI is expected to fuel Wall Street's tech hiring in 2025. Headhunters break down what you need to know to get a leg up.</a></h3>
+        </article>
+
+        <div class="timeline-year">2022</div>
+        <article class="press-item">
+          <div class="press-meta"><span class="press-outlet">Dice</span><span class="press-date">December 22, 2022</span></div>
+          <h3><a href="https://www.dice.com/career-advice/data-science-degree-choosing-the-best-one-for-a-career" target="_blank" rel="noopener">Data Science Degree: Choosing the Best One for a Career</a></h3>
+        </article>
+
+        <div class="timeline-year">2021</div>
+        <article class="press-item">
+          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">December 13, 2021</span></div>
+          <h3><a href="https://www.businessinsider.com/banks-hedge-funds-hiring-technologists-engineers-developers-fast-interview-process-2021-12" target="_blank" rel="noopener">Inside Wall Street's frenzied war for tech talent: Where candidates have 15 interviews in 3 days and recruiters are 'flat out right now'</a></h3>
+        </article>
+        <article class="press-item">
+          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">November 1, 2021</span></div>
+          <h3><a href="https://www.businessinsider.com/investment-banks-hiring-data-scientists-software-engineers-advise-deals-mergers-2021-10" target="_blank" rel="noopener">Goldman Sachs, Citi, and UBS execs detail how their investment banks are using data science to gain an edge in the dealmaking process</a></h3>
+        </article>
+        <article class="press-item">
+          <div class="press-meta"><span class="press-outlet">Business Insider</span><span class="press-date">July 9, 2021</span></div>
+          <h3><a href="https://www.businessinsider.com/wall-street-burnout-hiring-opportunity-fintech-ramp-rho-2021-7" target="_blank" rel="noopener">NY fintechs are using remote work to poach people from Wall Street banks pushing a return to the office</a></h3>
+        </article>
+
+        <div class="timeline-year">2018</div>
+        <article class="press-item">
+          <div class="press-meta"><span class="press-outlet">FundFire</span><span class="press-date">August 10, 2018</span></div>
+          <h3><span class="nolink">BlackRock, T. Rowe Turn to 'Bootcamps' for Tech Talent</span></h3>
+        </article>
+        <article class="press-item">
+          <div class="press-meta"><span class="press-outlet">eFinancialCareers</span><span class="press-date">January 17, 2018</span></div>
+          <h3><a href="https://news.efinancialcareers.com/us-en/305744/highest-paying-technology-jobs-wall-street" target="_blank" rel="noopener">How to make $200k+ in a tech job on Wall Street</a></h3>
+        </article>
+
+        <div class="timeline-year">2017</div>
+        <article class="press-item">
+          <div class="press-meta"><span class="press-outlet">eFinancialCareers</span><span class="press-date">July 28, 2017</span></div>
+          <h3><a href="https://news.efinancialcareers.com/us-en/291230/fintech-consolidation-could-eat-your-job-vela-trading-technologies" target="_blank" rel="noopener">Why not to work in fintech: Consolidation could eat your job</a></h3>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-ink cta-band">
+    <div class="wrap">
+      <h2 class="section-title" style="color:#fff;">Writing about hiring in quant finance or data science?</h2>
+      <p>Matt is available for expert commentary on Wall Street hiring trends, compensation, and the market for technical talent.</p>
+      <a class="btn btn-light" href="/contact.html">Get in touch</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Matt Stabile</h4>
+        <p>Matt Stabile is the leading quantitative finance, AI and data science recruiter in New York City, and Founder &amp; President of <a href="https://www.stabilesearch.com/">Stabile Search</a>. Matt is also an accomplished public speaker.</p>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About Matt</a></li>
+          <li><a href="/speaking.html">Speaking</a></li>
+          <li><a href="/media.html">In the Media</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="https://www.stabilesearch.com/">Stabile Search</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/mattstabile/" rel="me">LinkedIn</a></li>
+          <li><a href="https://twitter.com/MattStabile" rel="me">Twitter / X</a></li>
+          <li><a href="https://www.youtube.com/channel/UCa07s9wpaJpssXG7zZ10Rkg" rel="me">YouTube</a></li>
+          <li><a href="mailto:Matt@Stabilesearch.com">Matt@Stabilesearch.com</a></li>
+          <li><a href="tel:+16468594996">(646) 859-4996</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Matt Stabile. All rights reserved.</span>
+      <span>New York, New York, United States</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
